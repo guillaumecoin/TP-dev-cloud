@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+spec:
+  rules:
+    - host: api.example.com  # Remplacez par votre nom de domaine ou adresse IP
+      http:
+        paths:
+          - path: /api/products1  # Chemin pour le premier service
+            pathType: Prefix
+            backend:
+              service:
+                name: api-products-service  # Nom du service Kubernetes
+                port:
+                  number: 80  # Port du service
+          - path: /api/products2  # Chemin pour le second service
+            pathType: Prefix
+            backend:
+              service:
+                name: api-products2-service  # Nom du service Kubernetes
+                port:
+                  number: 80  # Port du service

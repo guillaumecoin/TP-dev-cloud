@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  api-products2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  api-products2
+  template:
+    metadata:
+      labels:
+        app:  api-products2
+    spec:
+      containers:
+        - name:  api-products2
+          image:  gc34/api-products2-image:1.0
+          ports:
+            - containerPort: 3000
